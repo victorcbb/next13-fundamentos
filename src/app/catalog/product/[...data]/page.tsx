@@ -1,4 +1,4 @@
-'use client'
+import { AddToCardButton } from './add-to-card-button'
 
 interface ProductProps {
   params: {
@@ -6,12 +6,11 @@ interface ProductProps {
   }
 }
 
-export default function Product({ params }: ProductProps) {
-  const [productId, size, color] = params.data
+export default async function Product({ params }: ProductProps) {
+  const response = await fetch('https://api.github.com/users/victorcbb')
+  const user = await response.json()
 
-  const addToCart = () => {
-    console.log('Adicionou ao carrinho.')
-  }
+  const [productId, size, color] = params.data
 
   return (
     <div>
@@ -19,7 +18,7 @@ export default function Product({ params }: ProductProps) {
       <p>Size: {size}</p>
       <p>Color: {color}</p>
 
-      <button onClick={addToCart}>Adicionar ao carrinho</button>
+      <AddToCardButton />
     </div>
   )
 }
