@@ -1,4 +1,5 @@
 import { AddToCardButton } from './add-to-card-button'
+import { Test } from './test'
 
 interface ProductProps {
   params: {
@@ -18,7 +19,9 @@ export default async function Product({ params }: ProductProps) {
       <p>Size: {size}</p>
       <p>Color: {color}</p>
 
-      <AddToCardButton />
+      <AddToCardButton>
+        <Test />
+      </AddToCardButton>
     </div>
   )
 }
